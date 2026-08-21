@@ -9,31 +9,587 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary:#1b4332; --primary-light:#2d6a4f; --accent:#f59e0b;
-  --accent-hover:#d97706; --dark:#0f172a; --light:#f8fafc;
-  --card:#fff; --border:#e2e8f0; --text:#334155; --muted:#64748b;
-  --shadow:0 10px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.03);
+  --primary: #1b4332;
+  --primary-light: #2d6a4f;
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --text: #334155;
+  --text-muted: #64748b;
+  --shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.03);
+  --shadow-lg: 0 20px 30px -10px rgba(0,0,0,0.1);
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif}
-html{scroll-behavior:smooth}
-body{background:var(--light);color:var(--text);line-height:1.6}
-header{background:var(--dark);color:#fff;padding:16px 5%;position:sticky;top:0;z-index:10;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-.nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.logo{color:#fff;text-decoration:none;font-size:22px;font-weight:900}
-.logo span{color:var(--accent)}
-nav ul{display:flex;list-style:none;gap:24px}
-nav a{color:#cbd5e1;text-decoration:none;font-weight:600}
-nav a:hover{color:var(--accent)}
-.btn{display:inline-block;border:0;border-radius:12px;padding:13px 25px;background:var(--accent);color:var(--dark);font-weight:800;text-decoration:none;cursor:pointer}
-.btn:hover{background:var(--accent-hover);color:#fff}
-.hero{background:linear-gradient(135deg,rgba(15,23,42,.92),rgba(27,67,50,.92)),url('https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1600&q=80') center/cover;color:#fff;text-align:center;padding:85px 20px}
-.hero-content{max-width:820px;margin:auto}
-.hero h1{font-size:42px;font-weight:900;line-height:1.3;margin-bottom:16px}
-.hero h1 span{color:var(--accent)}
-.hero p{font-size:18px;color:#e2e8f0;margin-bottom:30px}
-main{max-width:1200px;margin:40px auto;padding:0 20px}
-.title{text-align:center;margin-bottom:35px}
-.title h2{font-size:31px;color:var(--dark);font-weight:800}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+body {
+  background-color: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header & Nav */
+header {
+  background: var(--dark);
+  color: #fff;
+  padding: 16px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.btn-nav {
+  background: var(--accent);
+  color: var(--dark);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.btn-nav:hover {
+  background: var(--accent-hover);
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, rgba(15,23,42,0.92), rgba(27,67,50,0.92)), url('https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1600&q=80') center/cover;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 18px;
+  color: #e2e8f0;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--dark);
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(245,158,11,0.3);
+}
+
+/* Main Container */
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  color: var(--dark);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+/* Packages Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #fef3c7;
+  color: #b45309;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card h3 {
+  font-size: 22px;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.capacity {
+  font-size: 14px;
+  color: var(--primary-light);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 15px;
+}
+
+.price span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 25px;
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+}
+
+.features li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.features li::before {
+  content: "✔";
+  color: var(--primary-light);
+  font-weight: bold;
+}
+
+.btn-card {
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-card:hover {
+  background: var(--primary);
+}
+
+/* Calculator Section */
+.calc-section {
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--shadow);
+  margin-bottom: 60px;
+  border: 1px solid var(--border);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--accent);
+}
+
+.result-box {
+  background: #f1f5f9;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  border: 2px dashed #cbd5e1;
+}
+
+.result-box h4 {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.result-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* Contact & Request */
+.contact-section {
+  background: var(--dark);
+  color: #fff;
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 60px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
+.contact-info p {
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.order-form input, .order-form select, .order-form textarea {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #fff;
+}
+
+.order-form input:focus, .order-form select:focus, .order-form textarea:focus {
+  border-color: var(--accent);
+}
+
+footer {
+  background: #090d16;
+  color: #64748b;
+  text-align: center;
+  padding: 24px;
+  font-size: 14px;
+  border-top: 1px solid #1e293b;
+}
+
+@media(max-width: 768px) {
+  .calc-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  nav ul {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <a href="#" class="logo">☀️ سولار <span>باور</span></a>
+    <nav>
+      <ul>
+        <li><a href="#packages">المنظومات الشمسية</a></li>
+        <li><a href="#calculator">حاسبة الطاقة</a></li>
+        <li><a href="#contact">طلب عرض سعر</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn-nav">تواصل معنا</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>استثمر في <span>الطاقة النظيفة</span> وخفّض فاتورة الكهرباء</h1>
+    <p>حلول هندسية متكاملة لتركيب وتوريد محطات الطاقة الشمسية للمنازل، المزارع، والمنشآت التجارية بأعلى معايير الجودة وضمان معتمد.</p>
+    <a href="#packages" class="btn-primary">استعرض الباقات والمنظومات</a>
+  </div>
+</section>
+
+<main>
+  <section id="packages">
+    <div class="section-title">
+      <h2>باقات المنظومات الشمسية المعتمدة</h2>
+      <p>اختر المنظومة المناسبة لاستهلاكك مع خدمات التركيب والصيانة الشاملة</p>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <span class="badge">منازل صغيرة</span>
+        <div>
+          <h3>منظومة Solar Home 3KW</h3>
+          <div class="capacity">قدرة إنتاجية: ~12-15 كيلوواط/يومياً</div>
+          <div class="price">48,000 <span>جنيه مصري</span></div>
+          <ul class="features">
+            <li>ألواح شمسية عالية الكفاءة (Mono-Perc)</li>
+            <li>إنفرتر ذكي 3KW مع شاشة تحكم</li>
+            <li>هيكل تثبيت ألومنيوم مقاوم للرياح</li>
+            <li>ضمان 10 سنوات على الألواح</li>
+          </ul>
+        </div>
+        <button class="btn-card" onclick="selectPackage('Solar Home 3KW')">طلب معاينة وتركيب</button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <span class="badge">الأكثر طلباً</span>
+        <div>
+          <h3>منظومة Solar Pro 5KW</h3>
+          <div class="capacity">قدرة إنتاجية: ~22-26 كيلوواط/يومياً</div>
+          <div class="price">75,000 <span>جنيه مصري</span></div>
+          <ul class="features">
+            <li>مناسبة لتشغيل التكييف والأجهزة المنزلية</li>
+            <li>إنفرتر هجين (Hybrid) يدعم البطاريات</li>
+            <li>نظام مراقبة وتتبع ذكي عبر الهاتف (WiFi)</li>
+            <li>ضمان شامل ودعم فني دوري</li>
+          </ul>
+        </div>
+        <button class="btn-card" onclick="selectPackage('Solar Pro 5KW')">طلب معاينة وتركيب</button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <span class="badge">فلل وشركات</span>
+        <div>
+          <h3>منظومة Solar Elite 10KW</h3>
+          <div class="capacity">قدرة إنتاجية: ~45-55 كيلوواط/يومياً</div>
+          <div class="price">140,000 <span>جنيه مصري</span></div>
+          <ul class="features">
+            <li>حل متكامل للفلل والشركات والمصانع الصغيرة</li>
+            <li>ربط مع شبكة الكهرباء (On-Grid / Hybrid)</li>
+            <li>أعلى تصنيف في توفير استهلاك الطاقة</li>
+            <li>صيانة مجانية لمدة عامين</li>
+          </ul>
+        </div>
+        <button class="btn-card" onclick="selectPackage('Solar Elite 10KW')">طلب معاينة وتركيب</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section id="calculator" class="calc-section">
+    <div class="section-title">
+      <h2>حاسبة التوفير وحجم المنظومة</h2>
+      <p>احسب القدرة المقدرة والتوفير السنوي بناءً على متوسط فاتورة الكهرباء</p>
+    </div>
+    <div class="calc-grid">
+      <div>
+        <div class="form-group">
+          <label for="monthlyBill">متوسط فاتورة الكهرباء الشهرية (بالجنيه):</label>
+          <input type="number" id="monthlyBill" class="form-control" value="1500" placeholder="مثال: 1500" oninput="calculateSavings()">
+        </div>
+        <div class="form-group">
+          <label for="propertyType">نوع المنشأة:</label>
+          <select id="propertyType" class="form-control" onchange="calculateSavings()">
+            <option value="home">سكني / منزلي</option>
+            <option value="commercial">تجاري / إداري</option>
+            <option value="agricultural">زراعي / طلمبات ري</option>
+          </select>
+        </div>
+        <button class="btn-primary" style="width: 100%;" onclick="calculateSavings()">تحديث التقدير</button>
+      </div>
+      <div class="result-box">
+        <h4>القدرة الشمسية الموصى بها</h4>
+        <div class="result-value" id="calcKw">~ 3.5 KW</div>
+        <h4>التوفير السنوي التقريبي في الفاتورة</h4>
+        <div class="result-value" style="color: var(--accent);" id="calcSavings">16,200 جنيه / سنة</div>
+        <p style="font-size: 13px; color: var(--text-muted);">* التقديرات مبنية على متوسط ساعات سطوع الشمس في مصر وأسعار الاستهلاك الحالية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Request -->
+  <section id="contact" class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>تواصل لطلب معاينة فنية</h3>
+        <p>فريقنا الهندسي جاهز لمعاينة موقعك وتصميم أنسب محطة طاقة شمسية مطابقة لاحتياجاتك وميزانيتك.</p>
+        <div class="info-item">📍 العنوان: القاهرة الجديدة / المنيا الجديدة، مصر</div>
+        <div class="info-item">📞 الهاتف: 01000000000</div>
+        <div class="info-item">✉️ البريد الإلكتروني: info@solarpowereg.com</div>
+        <div class="info-item">⚡ دعم فني معتمد على مدار 24/7</div>
+      </div>
+      <div class="order-form">
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label style="color:#cbd5e1">الاسم بالكامل:</label>
+            <input type="text" class="form-control" id="custName" required placeholder="أدخل اسمك الكريم">
+          </div>
+          <div class="form-group">
+            <label style="color:#cbd5e1">رقم الهاتف (واتساب):</label>
+            <input type="tel" class="form-control" id="custPhone" required placeholder="01xxxxxxxxx">
+          </div>
+          <div class="form-group">
+            <label style="color:#cbd5e1">المنظومة المطلوبة أو الاستفسار:</label>
+            <input type="text" class="form-control" id="selectedPkg" placeholder="اختر باقة أو اكتب استفسارك">
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%;">إرسال طلب المعاينة الآن</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>جميع الحقوق محفوظة &copy; 2026 سولار باور - حلول الطاقة المتجددة في مصر</p>
+</footer>
+
+<script>
+function calculateSavings() {
+  const bill = parseFloat(document.getElementById('monthlyBill').value) || 0;
+  const kw = (bill / 450).toFixed(1);
+  const annualSavings = Math.round(bill * 12 * 0.90);
+  
+  document.getElementById('calcKw').textContent = `~ ${kw} KW`;
+  document.getElementById('calcSavings').textContent = `${annualSavings.toLocaleString('ar-EG')} جنيه / سنة`;
+}
+
+function selectPackage(pkgName) {
+  document.getElementById('selectedPkg').value = pkgName;
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+}
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('custName').value;
+  const phone = document.getElementById('custPhone').value;
+  const pkg = document.getElementById('selectedPkg').value || 'استفسار عام';
+  
+  alert(`شكراً لك يا ${name}!\nتم استلام طلبك بنجاح بخصوص (${pkg}).\nسيتواصل معك مهندس المبيعات على رقمك (${phone}) خلال 24 ساعة لترتيب المعاينة.`);
+  e.target.reset();
+}
+
+calculateSavings();
+</script>
+
+</body>
+</html>
 .title p{color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;margin-bottom:60px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:430px}
