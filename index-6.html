@@ -388,9 +388,9 @@ footer {
   border-top: 1px solid #1e293b;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768 px) {
   .calc-grid, .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1 fr;
   }
   nav ul {
     display: none;
@@ -508,8 +508,8 @@ footer {
         <h4>القدرة الشمسية الموصى بها</h4>
         <div class="result-value" id="calcKw">~ 3.5 KW</div>
         <h4>التوفير السنوي التقريبي في الفاتورة</h4>
-        <div class="result-value" style="color: var(--accent);" id="calcSavings">16,200 جنيه / سنة</div>
-        <p style="font-size: 13px; color: var(--text-muted);">* التقديرات مبنية على متوسط ساعات سطوع الشمس في مصر وأسعار الاستهلاك الحالية.</p>
+        <div class="result-value" style="color: var (--accent);" id="calcSavings">16,200 جنيه / سنة</div>
+        <p style="font-size: 13px; color: var (--text-muted);">* التقديرات مبنية على متوسط ساعات سطوع الشمس في مصر وأسعار الاستهلاك الحالية.</p>
       </div>
     </div>
   </section>
@@ -550,25 +550,25 @@ footer {
 </footer>
 
 <script>
-function calculateSavings() {
-  const bill = parseFloat(document.getElementById('monthlyBill').value) || 0;
-  const kw = (bill / 450).toFixed(1);
-  const annualSavings = Math.round(bill * 12 * 0.90);
+functioncalculateSavings() {
+  constbill = parseFloat(document.getElementById('monthlyBill').value) || 0;
+  constkw = (bill / 450).toFixed(1);
+  constannualSavings = Math.round(bill * 12 * 0.90);
 
   document.getElementById('calcKw').textContent = `~ ${kw} KW`;
   document.getElementById('calcSavings').textContent = `${annualSavings.toLocaleString('ar-EG')} جنيه / سنة`;
 }
 
-function selectPackage(pkgName) {
+functionselectPackage(pkgName) {
   document.getElementById('selectedPkg').value = pkgName;
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 
-function handleFormSubmit(e) {
+functionhandleFormSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('custName').value;
-  const phone = document.getElementById('custPhone').value;
-  const pkg = document.getElementById('selectedPkg').value || 'استفسار عام';
+  constname = document.getElementById('custName').value;
+  constphone = document.getElementById('custPhone').value;
+  constpkg = document.getElementById('selectedPkg').value || 'استفسار عام';
 
   alert(`شكراً لك يا ${name}!\nتم استلام طلبك بنجاح بخصوص (${pkg}).\nسيتواصل معك مهندس المبيعات على رقمك (${phone}) خلال 24 ساعة لترتيب المعاينة.`);
   e.target.reset();
